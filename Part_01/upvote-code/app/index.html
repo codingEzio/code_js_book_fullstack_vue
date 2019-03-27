@@ -28,7 +28,7 @@
                         and thus reuse and reorder existing elements (use it whenever possible).
                  -->
                 <article class="media" 
-                    v-for="single_sub in submissions" 
+                    v-for="single_sub in sortedSubmissions" 
                     v-bind:key="single_sub.id">
 
                     <figure class="media-left">
