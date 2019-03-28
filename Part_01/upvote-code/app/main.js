@@ -1,7 +1,7 @@
 const submissionComponent = {
   // It must be enclosed within A SINGLE root element (the 'div' here)
   template: `
-  <div style="display: flex; width: 100%"
+  <div style="display: flex; width: 100%">
     <figure class="media-left">
       <img class="image is-64x64" v-bind:src="single_sub.submissionImage">
     </figure>
@@ -30,7 +30,7 @@ const submissionComponent = {
         <strong class="has-text-info">{{ single_sub.votes }}</strong>
       </span>
     </div>
-  <div>`,
+  </div>`,
   props: ['single_sub', 'submissions'],
   methods: {
     // Since the Vue components ARE Vue instances,
