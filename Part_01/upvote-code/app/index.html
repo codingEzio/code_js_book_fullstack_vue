@@ -31,10 +31,13 @@
                     v-for="single_sub in sortedSubmissions" 
                     v-bind:key="single_sub.id"
                     v-bind:class="{ 'blue-border': single_sub.votes >= 20 }">
+                    <submission-component
+                        v-bind:single_sub="single_sub"
+                        v-bind:submissions="sortedSubmissions">
+                        <!-- Hello! -->
+                    </submission-component>
                 </article>
             </div>
-
-
         </div>
 
         <!-- Load the 'Vue' lib from a CDN. -->

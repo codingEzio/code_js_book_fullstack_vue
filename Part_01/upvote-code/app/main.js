@@ -31,7 +31,11 @@ const submissionComponent = {
       </span>
     </div>
   </div>`,
-  props: ['single_sub', 'submissions'],
+  props: [
+    // The 'props' can only flow in a SINGLE direction
+    'single_sub', // <= parent (iterated in HTML) (#TODO verify this)
+    'submissions', // <= parent
+  ],
   methods: {
     // Since the Vue components ARE Vue instances,
     // you CAN use most of the attrs that exist in the root Vue instance.
@@ -64,5 +68,8 @@ new Vue ({
         return latter.votes - former.votes;
       });
     },
+  },
+  components: {
+    'submission-component': submissionComponent, // HTML-tag :: Vue-component
   },
 });
