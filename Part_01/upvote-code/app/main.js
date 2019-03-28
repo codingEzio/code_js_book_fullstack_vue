@@ -1,7 +1,5 @@
 const submissionComponent = {
-  // Some rules for this `template` attr
-  // [1] It must be enclosed within A SINGLE root element (the 'div' here)
-  // [2]
+  // It must be enclosed within A SINGLE root element (the 'div' here)
   template: `
   <div style="display: flex; width: 100%"
     <figure class="media-left">
@@ -33,6 +31,18 @@ const submissionComponent = {
       </span>
     </div>
   <div>`,
+  props: ['single_sub', 'submissions'],
+  methods: {
+    // Since the Vue components ARE Vue instances,
+    // you CAN use most of the attrs that exist in the root Vue instance.
+    upvote (submissionId) {
+      const single_sub = this.submissions.find (
+        single_sub => single_sub.id === submissionId
+      );
+
+      single_sub.votes++;
+    },
+  },
 };
 
 new Vue ({
@@ -53,15 +63,6 @@ new Vue ({
       return this.submissions.sort ((former, latter) => {
         return latter.votes - former.votes;
       });
-    },
-  },
-  methods: {
-    upvote (submissionId) {
-      const single_sub = this.submissions.find (
-        single_sub => single_sub.id === submissionId
-      );
-
-      single_sub.votes++;
     },
   },
 });
