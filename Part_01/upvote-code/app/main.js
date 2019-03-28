@@ -18,4 +18,13 @@ new Vue ({
       });
     },
   },
+  methods: {
+    upvote (submissionId) {
+      const single_sub = this.submissions.find (
+        single_sub => single_sub.id === submissionId
+      );
+
+      single_sub.votes++;
+    },
+  },
 });
